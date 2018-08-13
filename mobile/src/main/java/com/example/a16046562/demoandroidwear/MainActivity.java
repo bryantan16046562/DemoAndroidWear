@@ -41,25 +41,20 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                PendingIntent pendingIntent =
-                        PendingIntent.getActivity(MainActivity.this, 0,
-                                intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent pendingIntent = PendingIntent.getActivity(
+                        MainActivity.this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-                NotificationCompat.Action action = new
-                        NotificationCompat.Action.Builder(
-                        R.mipmap.ic_launcher,
-                        "This is an Action",
-                        pendingIntent).build();
+                NotificationCompat.Action action = new NotificationCompat.Action.Builder(
+                        R.mipmap.ic_launcher,"This is an Action", pendingIntent).build();
 
-                NotificationCompat.WearableExtender extender = new
-                        NotificationCompat.WearableExtender();
+                //wear notification created
+                NotificationCompat.WearableExtender extender = new NotificationCompat.WearableExtender();
                 extender.addAction(action);
 
                 String text = getString(R.string.basic_notify_msg);
                 String title = getString(R.string.notification_title);
 
-                NotificationCompat.Builder builder = new
-                        NotificationCompat.Builder(MainActivity.this, "default");
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(MainActivity.this, "default");
                 builder.setContentText(text);
                 builder.setContentTitle(title);
                 builder.setSmallIcon(android.R.drawable.btn_star_big_off);
